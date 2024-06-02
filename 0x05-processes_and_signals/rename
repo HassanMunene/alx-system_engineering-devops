@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# im using this script to remane all my script files ending with ".sh"
+# All the files will be renamed to end with no extension becaouse this is what Alx requires
+
+for file in *
+do
+	if [[ "$file" == *.* ]]
+	then
+		mv "${file}" "${file%.*}"
+	fi
+done

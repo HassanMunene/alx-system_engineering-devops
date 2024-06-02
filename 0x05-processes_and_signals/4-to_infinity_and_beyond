@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print the word "To infinity and beyond" inifinitely
+# ctrl+c kills the process
+
+i=1
+while [ $i -eq 1 ]
+do
+	echo "To infinty and beyond"
+	sleep 2
+done

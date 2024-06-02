@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# used to kill the specified process without using kill command
+
+pkill -f "4-to_infinity_and_beyond"

@@ -1,4 +1,5 @@
-#!/usr/bin/bash
-# display my own pid
+#!/usr/bin/env bash
+#This script is used to display the PID assigned to this script when
+#running it by the system
 
-echo "$$"
+echo $$

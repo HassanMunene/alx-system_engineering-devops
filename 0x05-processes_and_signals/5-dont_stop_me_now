@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This method kills the currently running process.
+
+kill -15 "$(pgrep -f 4-to_infinity_and_beyond)"
