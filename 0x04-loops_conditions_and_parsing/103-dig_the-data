@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script groups visitors by IP and HTTP status code then displays data.
+
+log_file=$(find . -name "apache-access.log" -type f -print -quit)
+
+if [[ -z "$log_file" ]]; then
+  echo "Error: apache-access.log file not found."
+  exit 1
+fi
+
+awk '{print $1, $9}' "$log_file" | sort | uniq -c | sort -rn
