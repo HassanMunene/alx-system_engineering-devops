@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+sudo docker exec -ti e6cf04e540e9 /bin/bash
+dpkg -l | grep apache2
+sudo service apache2 start
+echo "apache2 is running"
