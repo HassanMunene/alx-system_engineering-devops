@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#Script to configure Nginx so that its HTTP response contains a custom header either web-01 or web-02
+
+apt-get -y update
+apt-get -y install nginx
+
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+
+touch /etc/nginx/html/404.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+
+printf %s "server{
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    add_header X-Served-By $HOSTNAME;
+
+    root /etc/nginx/html;
+    index index.html index.htm;
+    
+    location /redirect_me{
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+    
+    error_page 404 /404.html;
+    location = /404.html {
+         internal;
+     }
+
+}" > /etc/nginx/sites-available/default
+
+sudo service nginx restart
